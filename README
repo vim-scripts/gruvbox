@@ -1,0 +1,66 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4349
+
+Homesite: https://github.com/morhetz/gruvbox
+
+Gruvbox is heavily inspired by badwolf (https://github.com/sjl/badwolf), jellybeans (https://github.com/nanotech/jellybeans.vim) and solarized (http://ethanschoonover.com/solarized).
+
+Designed as a bright theme with pastel &#039retro groove&#039 colors and light/dark mode switching in the way of solarized. The main focus when developing Gruvbox is to keep colors easily distinguishable, contrast enough and still pleasant for the eyes.
+
+Screenshots
+-----------
+
+Refer Gallery (https://github.com/morhetz/gruvbox/wiki/Gallery) for more syntax-specific screenshots.
+
+Dark mode (http://i.imgur.com/2870c.png)
+Light mode (http://i.imgur.com/oS9I3.png)
+
+Features
+--------
+
+* Lots of style-customization options (contrast, color invertion, italics usage etc.)
+* Extended filetype highlighting: Html, Xml, Vim, Clojure, C, Python, JavaScript, CoffeeScript, Ruby, Objective-C, Go, Lua, MoonScript, Java
+* Supported plugins: EasyMotion, vim-sneak, Indent Guides, indentLine, Rainbow Parentheses, Airline, GitGutter, Signify, ShowMarks, Signature, Syntastic, CtrlP, Startify
+
+Usage
+-----
+
+gruvbox comes in two modes, dark and light. To toggle between them with F5 you can add these to your .vimrc
+
+	map <silent> <F5> :call gruvbox#bg_toggle()<CR>
+	imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
+	vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
+
+Just setting background to an appropriate value would work as well
+
+	set bg=dark    " Setting dark mode
+	set bg=light   " Setting light mode
+
+Since gruvbox inverts cursor color, it could be awkward to determine current position, when the search is highlighted. To get single cursor color while searching, map these gruvbox functions same way:
+
+	nnoremap <silent> <Leader><Space> :call gruvbox#hls_toggle()<CR>
+	inoremap <silent> <Leader><Space> <ESC>:call gruvbox#hls_toggle()<CR>a
+	vnoremap <silent> <Leader><Space> <ESC>:call gruvbox#hls_toggle()<CR>gv
+ 
+	nnoremap <silent> <CR> :call gruvbox#hls_hide()<CR><CR>
+  
+	nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+	nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+	nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+
+So you'll get `g:gruvbox_hls_cursor` (orange by default) cursor color when highlight search is on and inverted one otherwise. With such mappings you could also toggle search highlight on and off with <Leader><Space> and hide it with Enter.
+
+ToDo
+----
+
+* Filetype syntax highlighting (R, TeX and I'm still dissatisfied with CSS)
+* Plugin support (MiniBufExplorer, Tagbar)
+* Airline theme
+
+Troubleshooting, Configuration, Functions
+-------------------------------------------------
+
+Please refer homesite (https://github.com/morhetz/gruvbox)
+
+License
+-------
+Licensed under MIT/X11
